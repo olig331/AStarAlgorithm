@@ -56,3 +56,36 @@
 .starting_cell{
   background-color: green;
 }
+
+.ending_cell{
+  background-color: red;
+}
+
+.wall_path_cell{
+  background-color: black;
+}
+
+.instructions{
+  h3{
+    span{
+      text-decoration: underline;
+      color:slateblue;
+      &::before{
+        content: open-quote;
+        color: slateblue;
+      }
+      &::after{
+        content: close-quote;
+        color: slateblue;
+      }
+    }
+  }
+}
+
+.visited{
+  background-color: pink;
+}
+
+.path{
+  background-color: blue;
+}

@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A* Pathfinder</title>
-  <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="./src/style/style.css">
-</head>
-<body>
-  <div id="controls_container">
-    <button id="update_grid">Update Grid</button>
-    <label for="rows">Rows</label><input id="rows" name="rows" min="10" max="100" value="15" type="number">
-    <label for="cols">Columns</label><input id="cols" name="cols" min="10" max="100" value="15" type="number">
-    <label for="sqaure">sqaure?</label><input name="square" type="checkbox">
-    <button id="find_path">Find Path</button>
-    <label for="start_cell">Start</label>
-      <div id="start_cell" name="start_cell"></div>
-    <label for="end_cell">End</label>
-      <div id="end_cell" name="end_cell"></div>
-    <label for="wall_cell">Wall</label>
-      <div name="wall_cell" id="wall_cell"></div>
-  </div>
-  <div id="grid_wrapper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A* Pathfinder</title>
+    <link rel="shortcut icon" href="" />
+    <link rel="stylesheet" href="./src/style/style.css" />
+  </head>
+  <body id="body">
+    <div id="controls_container">
+      <button id="update_grid">Update Grid</button>
+      <label for="rows"> Rows </label>
+      <input
+        id="rows"
+        name="rows"
+        min="5"
+        max="100"
+        value="15"
+        type="number"
+      />
+      <label for="cols">Columns</label>
+      <input
+        id="cols"
+        name="cols"
+        min="5"
+        max="100"
+        value="15"
+        type="number"
+      />
+      <label for="sqaure">sqaure?</label>
+      <input 
+        name="square" 
+        type="checkbox" 
+      />
 
-  </div>
-</body>
+      <button id="find_path">Find Path</button>
+      <button id="clear_grid">Clear grid</button>
+      <button id="clear_walls">Clear Walls</button>
+
+      <div class="instructions">
+        <h3>Press and hold the <span>S</span> key and click a cell to add start point</h3>
+        <h3>Press and hold the <span>E</span> key and click a cell to create end point</h3>
+        <h3>Hold left mouse button down and drag over cells to create walls</h3>
+      </div>
+    </div>
+    <div id="grid_wrapper"></div>
+  </body>
   <script src="./public/bundle.js"></script>
 </html>

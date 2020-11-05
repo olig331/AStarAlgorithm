@@ -1,3 +1,5 @@
+
+// Create the grid seen on screen giving dynamic id's to each div on the grid
 export function createvisualGrid(rows, cols) {
   console.log("running visual ")
   const gridParent = document.getElementById('grid_wrapper'); // container for grid
@@ -25,16 +27,68 @@ export function createvisualGrid(rows, cols) {
   }
 }
 
-export function colorGrid(cell, cellType) {
+// This fucntion colors the start and end cells
+export function colorStartEnd(cell, cellType) {
   const isStart = [...document.querySelectorAll('.starting_cell')];
+  const isEnd = [...document.querySelectorAll('.ending_cell')];
   console.log(isStart)
-  document.getElementById(cell).className += cellType
-  isStart.map((cells) => {
-    cells.className = "cell"
-  })
+  document.getElementById(`${cell}`).className += ` ${cellType}`
+  if (cellType === "starting_cell") {
+    isStart.map((cells) => {
+      cells.className = "cell"
+    })
+  } else {
+    isEnd.map((cells) => {
+      cells.className = "cell"
+    })
+  }
+}
+
+// This fucntion colors the wall on a click and drag 
+export function colorWalls(cell) {
+  let toColor = document.getElementById(`${cell}`)
+  toColor.className += " wall_path_cell";
+}
+
+// Clear the visual grid of all walls
+export function clearWalls() {
+  let cellsArr = [...document.querySelectorAll('.wall_path_cell')];
+  cellsArr.map(cell => cell.className = "cell");
+}
+
+// clear the grid of everything (setting every cells class back to original)
+export function clearGrid() {
+  let cellsArr = [...document.querySelectorAll('.cell')];
+  cellsArr.map(cell => cell.className = "cell")
 }
 
 
+// Visualise the path found
+export function visualCellsVisited(vals) {
+  for (let i = 0; i < vals.visited.length; i++) {
+    if (i === vals.visited.length - 1) {
+      setTimeout(() => {
+        visualPath(vals.finalPath)
+      }, 10 * i);
+    } else {
+      setTimeout(() => {
+        const node = vals.visited[i];
+        if (i !== 0) {
+          document.getElementById(`row=${node.row}-col=${node.col}`).className = "cell visited"
+        }
+      }, 10 * i);
+    }
+  }
+  //visualShortestPath(vals.finalPath)
+}
 
-
-
+function visualPath(path) {
+  console.log(path)
+  console.log("short path func running")
+  for (let i = 0; i < path.length; i++) {
+    setTimeout(() => {
+      const node = path[i];
+      document.getElementById(`row=${node.row}-col=${node.col}`).className = "cell path"
+    }, 30 * i);
+  }
+}
