@@ -1,6 +1,6 @@
 const path = require('path');
 const port = process.env.PORT || 3001;
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+//const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -29,17 +29,18 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: './index.html'
-    })
-  ],
+  // plugins: [
+  //   new HTMLWebpackPlugin({
+  //     template: './index.html'
+  //   })
+  // ],
   devServer: {
     host: 'localhost',
     port: port,
     historyApiFallback: true,
     open: true,
-  }
+  },
+  devtool: 'eval-source-map'
 };
 
 

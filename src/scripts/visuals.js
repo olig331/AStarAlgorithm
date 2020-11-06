@@ -1,3 +1,17 @@
+const colSlider = document.getElementById('cols');
+const rowSlider = document.getElementById('rows');
+const rowOutput = document.getElementById('rows_output');
+const colOutput = document.getElementById('cols_output')
+colOutput.innerHTML = colSlider.value
+rowOutput.innerHTML = rowSlider.value
+
+colSlider.oninput = function () {
+  colOutput.innerHTML = colSlider.value;
+}
+rowSlider.oninput = function () {
+  rowOutput.innerHTML = rowSlider.value;
+}
+
 
 // Create the grid seen on screen giving dynamic id's to each div on the grid
 export function createvisualGrid(rows, cols) {
@@ -32,7 +46,7 @@ export function colorStartEnd(cell, cellType) {
   const isStart = [...document.querySelectorAll('.starting_cell')];
   const isEnd = [...document.querySelectorAll('.ending_cell')];
   console.log(isStart)
-  document.getElementById(`${cell}`).className += ` ${cellType}`
+  document.getElementById(`${cell}`).className = `cell ${cellType}`;
   if (cellType === "starting_cell") {
     isStart.map((cells) => {
       cells.className = "cell"

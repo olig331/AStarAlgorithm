@@ -9,42 +9,37 @@
   </head>
   <body id="body">
     <div id="controls_container">
-      <button id="update_grid">Update Grid</button>
-      <label for="rows"> Rows </label>
-      <input
+      <div class="instructions">
+        <h3>Press and hold the <span>S</span> key and click a cell to add start point</h3>
+        <h3>Press and hold the <span>E</span> key and click a cell to create end point</h3>
+        <h3>Hold left mouse button down and drag over cells to create walls</h3>
+      </div>
+      <div id="rows_container">
+       <p>No. Rows</p>
+        <input type="range" name="rows" min="10" max="100" value="20" class="slider" id="rows">
+        <p id="rows_output"></p>
+      </div>
+      <!-- <input
         id="rows"
         name="rows"
         min="5"
         max="100"
         value="15"
         type="number"
-      />
-      <label for="cols">Columns</label>
-      <input
-        id="cols"
-        name="cols"
-        min="5"
-        max="100"
-        value="15"
-        type="number"
-      />
-      <label for="sqaure">sqaure?</label>
-      <input 
-        name="square" 
-        type="checkbox" 
-      />
-
+      /> -->
+     <div id="cols_container">
+        <p>No. Cols</p>
+        <input type="range" name="cols" min="10" max="100" value="20" class="slider" id="cols">
+        <p id="cols_output"></p>
+     </div>
+      <button id="update_grid">Update Grid</button>
       <button id="find_path">Find Path</button>
       <button id="clear_grid">Clear grid</button>
       <button id="clear_walls">Clear Walls</button>
-
-      <div class="instructions">
-        <h3>Press and hold the <span>S</span> key and click a cell to add start point</h3>
-        <h3>Press and hold the <span>E</span> key and click a cell to create end point</h3>
-        <h3>Hold left mouse button down and drag over cells to create walls</h3>
-      </div>
     </div>
-    <div id="grid_wrapper"></div>
+    <div id="grid_container">
+      <div id="grid_wrapper"></div>
+    <div>
   </body>
   <script src="./public/bundle.js"></script>
 </html>
