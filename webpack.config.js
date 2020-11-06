@@ -1,5 +1,5 @@
 const path = require('path');
-const port = process.env.PORT || 3001;
+const port = process.env.PORT
 //const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
